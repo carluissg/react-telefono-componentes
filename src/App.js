@@ -1,4 +1,5 @@
 import { useState } from "react";
+import pantalla from ".components/pantalla";
 const maxDigitos = 9;
 
 let temporizador;

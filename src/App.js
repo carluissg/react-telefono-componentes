@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Pantalla } from "./components/pantalla";
-import { NumeroTeclado } from "./components/numeroTeclado";
-import { Teclado } from "./components/teclado";
-import { MensajeLlamada } from "./components/mensajeLlamada";
+import Pantalla from "./components/pantalla";
+import Teclado from "./components/teclado";
+import MensajeLlamada from "./components/mensajeLlamada";
 const maxDigitos = 9;
 
 let temporizador;

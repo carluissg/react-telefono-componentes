@@ -1,6 +1,8 @@
 import { useState } from "react";
-import pantalla from ".components/pantalla";
-import mensajeLlamada from ".components/mensajeLlamada";
+import { Pantalla } from "./components/pantalla";
+import { NumeroTeclado } from "./components/numeroTeclado";
+import { Teclado } from "./components/teclado";
+import { MensajeLlamada } from "./components/mensajeLlamada";
 const maxDigitos = 9;
 
 let temporizador;
@@ -40,22 +42,13 @@ function App() {
 
   return (
     <div className="contenedor">
-      <span className={`mensaje${!llamando ? " off" : ""}`}>Llamando...</span>
+      <MensajeLlamada llamando={llamando} />
       <main className="telefono">
         <div className="botones">
-          <ol className="teclado">
-            {
-              [...[...Array(10)].map((x, i) => i).slice(1), 0].map(digito => (
-                <li key={digito}>
-                  <button disabled={llamando} onClick={() => anyadirDigito(digito)}>{digito}</button>
-                </li>
-              ))
-            }
-            <li><button disabled={llamando} className="big" onClick={borrarUltimoDigito}>borrar</button></li>
-          </ol>
+          <Teclado llamando={llamando} anyadirDigito={anyadirDigito} borrarUltimoDigito={borrarUltimoDigito} />
         </div>
         <div className="acciones">
-          <span className="numero">{numero}</span>
+          <Pantalla numero={numero} />
           {
             !llamando
               ? <a
